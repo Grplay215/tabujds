@@ -8,6 +8,13 @@ function calcularTabuadas(tabuada, tabuada2, multiplicador, multiplicador2) {
 
     if (tabuada == '' || tabuada2 == '' || multiplicador == '' || multiplicador2 == '') {
         return false
+
+    }else if (tabuada == 0 || tabuada2 == 100 ) {
+        return false
+
+    }else if ( multiplicador == 1 || multiplicador2 == 50) {
+        return false
+        
     }
 
     if (tabuada2 < tabuada) {
