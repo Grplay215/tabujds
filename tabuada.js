@@ -6,6 +6,7 @@
  * ***********************************************************************************/
 
 
+
 const readline = require('readline')
 
 const entradaDedados = readline.createInterface({

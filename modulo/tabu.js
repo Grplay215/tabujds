@@ -17,6 +17,8 @@ function calcularTabuadas(tabuada, tabuada2, multiplicador, multiplicador2) {
         
     
     
+
+            
     
 
     // Corrige ordem das tabuadas
