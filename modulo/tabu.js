@@ -6,72 +6,58 @@ function calcularTabuadas(tabuada, tabuada2, multiplicador, multiplicador2) {
 
     let apoio = 0;
 
-    
-    
-        if (tabuada== '' || tabuada2==''|| multiplicador==''||multiplicador2=='') {
-            return false
-        }else if (tabuada == 0 || tabuada == 100 ||tabuada2 == 0 || tabuada2 == 100 ||multiplicador == 1 || multiplicador == 50 ||multiplicador2 == 1 || multiplicador2 == 50 ) {
-            return false
-        } else{
-            
-        
-    
-    
+    if (tabuada == '' || tabuada2 == '' || multiplicador == '' || multiplicador2 == '') {
+        return false
+    }
 
-            
-    
-
-    // Corrige ordem das tabuadas
     if (tabuada2 < tabuada) {
-        apoio = tabuada2;
-        tabuada2 = tabuada;
-        tabuada = apoio;
+        apoio = tabuada2
+        tabuada2 = tabuada
+        tabuada = apoio
     }
 
-    // Corrige ordem dos multiplicadores
     if (multiplicador2 < multiplicador) {
-        apoio = multiplicador2;
-        multiplicador2 = multiplicador;
-        multiplicador = apoio;
+        apoio = multiplicador2
+        multiplicador2 = multiplicador
+        multiplicador = apoio
     }
 
-    let totalTabuadas = tabuada2 - tabuada + 1;
-    var tabuadaCompleta = new Array(totalTabuadas);
+    let totalTabuadas = tabuada2 - tabuada + 1
+    let tabuadaCompleta = []
 
-    let indiceTabuada = 0;
+    let indiceTabuada = 0
 
     while (indiceTabuada < totalTabuadas) {
 
-        let numeroAtual = tabuada;
-        let tamanhoDoVetor = multiplicador2 - multiplicador + 1;
-        let tabuada = new Array(tamanhoDoVetor);
+        let numeroAtual = tabuada
+        let linhasTabuada = []
 
-        let i = 0;
-        let multiplicador = multiplicador;
+        let multiplicadorAtual = multiplicador
 
-        while (i < tamanhoDoVetor) {
-            let produto = numeroAtual * multiplicador;
-            tabuada[i] = `${numeroAtual} X ${multiplicador} = ${produto}`;
-            multiplicador = multiplicador + 1;
-            i = i + 1;
+        while (multiplicadorAtual <= multiplicador2) {
+
+            let produto = numeroAtual * multiplicadorAtual
+            linhasTabuada.push(`${numeroAtual} X ${multiplicadorAtual} = ${produto}`)
+
+            multiplicadorAtual++
         }
 
-        tabuadaCompleta[indiceTabuada] = tabuada;
+        tabuadaCompleta.push(linhasTabuada)
 
-        tabuada = tabuada + 1;
-        indiceTabuada = indiceTabuada + 1;
+        tabuada++
+        indiceTabuada++
     }
 
-    exibirTabuadas(tabuadaCompleta);
+    return tabuadaCompleta
 }
 
-function exibirTabuadas(tabuadaCompleta) {
+function exibirTabuadas(exibir) {
 
     let i = 0;
 
-    while (i < tabuadaCompleta.length) {
+    while (i < exibir.length) {
 
-        let tabuada = tabuadaCompleta[i];
+        let tabuada = exibir[i];
         let j = 0;
 
         while (j < tabuada.length) {
@@ -80,22 +66,20 @@ function exibirTabuadas(tabuadaCompleta) {
         }
 
         console.log(""); 
+
         i = i + 1;
     }
 }
 
-
-
-
-
+module.exports ={
+    calcularTabuadas,
+    exibirTabuadas
 }
 
 
-let calc = calcularTabuadas(0, 10, 1, 5)
 
-let exibicao = exibirTabuadas(tabuadaCompleta)
 
-console.log(exibicao)
+
 
 
 

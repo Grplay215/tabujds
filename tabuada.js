@@ -30,8 +30,18 @@ entradaDedados.question('qual a primeira tabuada? ', function(tabuada){
                 let tabuadass = tabu.calcularTabuadas(tabuadaInicial, tabuadaFinal, multiplicadorInicial, multiplicadorFinal)
 
                 if (tabuadass) {
-                    
+                    let i = 0
+
+                    while (i < tabuadass.length) {
+                
+                        console.log(tabuadass[i].join("\n"))
+                        console.log("") // separa as tabuadas
+                
+                        i++
+                    }
                 }
+
+                entradaDedados.close
             })
         })
     })
