@@ -35,7 +35,7 @@ entradaDedados.question('qual a primeira tabuada? ', function(tabuada){
                     while (i < tabuadass.length) {
                 
                         console.log(tabuadass[i].join("\n"))
-                        console.log("") // separa as tabuadas
+                        console.log("") 
                 
                         i++
                     }
